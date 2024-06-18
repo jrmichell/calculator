@@ -6,21 +6,21 @@ import (
 )
 
 func main() {
-	fmt.Printf("The answer is %.2f\n", calculate())
-
 	var response string
 
-	fmt.Println("Do you want to perform another calculation? (y/n)")
-	fmt.Scanln(&response)
+	fmt.Printf("The answer is %.2f\n", calculate())
 
-	for response == "y" {
-		fmt.Printf("The answer is %.2f\n", calculate())
+	for {
 		fmt.Println("Do you want to perform another calculation? (y/n)")
 		fmt.Scanln(&response)
 
-		if response != "y" {
+		if response == "y" {
+			fmt.Printf("The answer is %.2f\n", calculate())
+		} else if response == "n" {
 			fmt.Println("Goodbye!")
 			break
+		} else {
+			fmt.Println("Invalid response. Please enter 'y' or 'n'.")
 		}
 	}
 }
